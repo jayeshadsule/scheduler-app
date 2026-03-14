@@ -25,7 +25,6 @@ exports.getAvailabilityByLink = async (req, res) => {
         .filter(b => b.date === avail.date)
         .map(b => b.time.slice(0, 5));
 
-      // Instead of filtering, return objects with isBooked status
       const slotsWithStatus = allSlots.map(time => ({
         time,
         isBooked: bookedSlots.includes(time)

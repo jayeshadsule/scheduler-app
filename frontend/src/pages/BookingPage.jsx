@@ -49,7 +49,7 @@ const BookingPage = () => {
       setMessage('Booking successful!');
       setError('');
       
-      // Update local state to mark the slot as booked
+     
       setAvailabilities(prev => 
         prev.map(avail => {
           if (String(avail.date).trim().substring(0, 10) === selectedDate) {
@@ -71,7 +71,7 @@ const BookingPage = () => {
 
   const currentDaySlots = availabilities.find(
     avail => {
-      // Robust matching: trim and compare only the first 10 characters (YYYY-MM-DD)
+       
       const availDate = String(avail.date).trim().substring(0, 10);
       const selectedDateClean = String(selectedDate).trim().substring(0, 10);
       return availDate === selectedDateClean;

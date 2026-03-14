@@ -32,7 +32,7 @@ exports.generateLink = async (req, res) => {
   const bookingLink = uuidv4();
 
   try {
-    // Link all pending availabilities for this user to the new link
+    
     const [result] = await db.query(
       'UPDATE availability SET booking_link = ? WHERE user_id = ? AND booking_link IS NULL',
       [bookingLink, userId]

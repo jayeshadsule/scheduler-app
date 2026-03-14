@@ -1,7 +1,6 @@
 const generateSlots = (startTime, endTime) => {
   const slots = [];
   
-  // startTime and endTime are in HH:mm:ss format
   const startParts = String(startTime).split(':');
   const endParts = String(endTime).split(':');
   

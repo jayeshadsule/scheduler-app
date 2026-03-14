@@ -8,7 +8,7 @@ const AvailabilityPage = () => {
   const [selectedDate, setSelectedDate] = useState('');
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
-  const [savedAvailabilities, setSavedAvailabilities] = useState([]); // Managed offline/local state
+  const [savedAvailabilities, setSavedAvailabilities] = useState([]); 
   const [bookingLink, setBookingLink] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -38,15 +38,14 @@ const AvailabilityPage = () => {
         endTime 
       });
       
-      // Update the local list from the API response (offline management)
+      
       setSavedAvailabilities([...savedAvailabilities, {
         id: response.data.id,
         date: response.data.date,
         startTime: response.data.startTime,
         endTime: response.data.endTime
       }]);
-      
-      // Reset inputs
+  
       setSelectedDate('');
       setStartTime('');
       setEndTime('');
@@ -69,7 +68,7 @@ const AvailabilityPage = () => {
       const response = await generateLink();
       const link = `${window.location.origin}/book/${response.data.bookingLink}`;
       setBookingLink(link);
-      setSavedAvailabilities([]); // Clear the list after generating
+      setSavedAvailabilities([]);  
       setError('');
     } catch (err) {
       setError(err.response?.data?.error || 'Failed to generate booking link');

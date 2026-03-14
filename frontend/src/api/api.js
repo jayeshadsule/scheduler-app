@@ -2,7 +2,6 @@ import axios from 'axios';
 
 const API_BASE_URL = '/api';
 
-// Add user ID to requests
 axios.interceptors.request.use(
   (config) => {
     const user = JSON.parse(localStorage.getItem('user'));
